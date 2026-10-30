@@ -55,3 +55,16 @@
     height: 230px;
   }
 }
+/* TESTE DE TAMANHO DO RETRATO */
+.entry-visual {
+  height: 300px !important;
+  min-height: 300px !important;
+}
+
+.entry-visual img {
+  width: 100% !important;
+  height: 270px !important;
+  object-fit: contain !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
