@@ -1,3 +1,4 @@
+
 const searchInput = document.querySelector("#search");
 const categorySelect = document.querySelector("#category");
 const entries = document.querySelector("#entries");
@@ -9,7 +10,7 @@ let items = [];
 async function loadCatalog() {
   try {
     const response = await fetch("data/assets.json");
-    if (!response.ok) throw new Error("Não foi possível carregar o catálogo.");
+    if (!response.ok) throw new Error("Catálogo não encontrado.");
 
     const data = await response.json();
     items = Array.isArray(data) ? data : (data.items || []);
@@ -17,7 +18,7 @@ async function loadCatalog() {
   } catch (error) {
     count.textContent = "Catálogo indisponível";
     empty.classList.remove("hidden");
-    empty.textContent = "Não foi possível carregar data/assets.json. Verifique os arquivos.";
+    empty.textContent = "Não foi possível carregar o catálogo.";
   }
 }
 
@@ -34,7 +35,7 @@ function render() {
     <article class="entry">
       <div class="entry-visual">
         ${item.image
-          ? `<img src="${safeUrl(item.image)}" alt="${escapeHtml(item.name)}" loading="lazy">`
+          ? `<img src="${escapeHtml(item.image)}" alt="${escapeHtml(item.name)}">`
           : escapeHtml(item.icon || "✧")}
       </div>
       <div class="entry-body">
