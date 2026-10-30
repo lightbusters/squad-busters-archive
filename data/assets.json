@@ -2,7 +2,7 @@
   {
     "name": "Mortis",
     "category": "Personagens",
-    "image": "assets/characters/Mortis_Hero_portrait.png",
+    "image": "https://lightbusters.github.io/squad-busters-archive/assets/characters/Mortis_Hero_portrait.png",
     "description": "Personagem de Squad Busters."
   }
 ]
