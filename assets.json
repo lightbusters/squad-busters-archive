@@ -1,0 +1,49 @@
+{
+  "items": [
+    {
+      "id": "sample-character",
+      "name": "Exemplo de personagem",
+      "category": "Personagens",
+      "description": "Entrada demonstrativa. Substitua por informações verificadas e adicione a referência da fonte.",
+      "icon": "♟",
+      "status": "placeholder",
+      "source_url": ""
+    },
+    {
+      "id": "sample-cosmetic",
+      "name": "Exemplo de cosmético",
+      "category": "Cosméticos",
+      "description": "Use esta entrada para registrar skins, emotes, ícones e outros cosméticos.",
+      "icon": "✦",
+      "status": "placeholder",
+      "source_url": ""
+    },
+    {
+      "id": "sample-ui",
+      "name": "Exemplo de elemento de interface",
+      "category": "Interface",
+      "description": "Registre ícones, botões, fundos e elementos visuais da interface.",
+      "icon": "▦",
+      "status": "placeholder",
+      "source_url": ""
+    },
+    {
+      "id": "sample-media",
+      "name": "Exemplo de arte promocional",
+      "category": "Mídia",
+      "description": "Adicione materiais promocionais com data, contexto e fonte original.",
+      "icon": "▧",
+      "status": "placeholder",
+      "source_url": ""
+    },
+    {
+      "id": "sample-history",
+      "name": "Linha do tempo do jogo",
+      "category": "História",
+      "description": "Documente atualizações, eventos e anúncios com fontes públicas verificáveis.",
+      "icon": "◷",
+      "status": "placeholder",
+      "source_url": "https://supercell.com/en/news/squad-busters-faq/"
+    }
+  ]
+}

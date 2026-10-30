@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Arquivo comunitário e não oficial que documenta Squad Busters.">
+  <title>Squad Busters Archive — Wiki comunitária</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./" aria-label="Página inicial">
+      <span class="brand-mark">SB</span>
+      <span>SQUAD BUSTERS <b>ARCHIVE</b></span>
+    </a>
+    <nav aria-label="Navegação principal">
+      <a href="#explore">Explorar</a>
+      <a href="#about">Sobre</a>
+      <a href="#sources">Fontes</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">WIKI COMUNITÁRIA · PRESERVAÇÃO DIGITAL</p>
+        <h1>Uma aventura<br><span>não será esquecida.</span></h1>
+        <p class="intro">Um arquivo independente dedicado a documentar personagens, itens, artes, atualizações e a história de Squad Busters.</p>
+        <a class="primary-button" href="#explore">Explorar o arquivo <span>↘</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true">
+        <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div>
+        <div class="orb orb-yellow">★</div><div class="orb orb-pink">✦</div>
+        <div class="orb orb-blue">●</div><div class="orb orb-green">✚</div>
+        <div class="hero-stamp">EST. 2026<br><small>FAN ARCHIVE</small></div>
+      </div>
+    </section>
+
+    <section class="notice" id="about">
+      <strong>Projeto de fãs, não oficial.</strong>
+      <span>Este material não é oficial e não é aprovado pela Supercell. Para mais informações, consulte a
+        <a href="https://supercell.com/en/fan-content-policy/pt/" target="_blank" rel="noopener">Política de Conteúdo para Fãs da Supercell</a>.
+      </span>
+    </section>
+
+    <section class="section" id="explore">
+      <div class="section-heading">
+        <div><p class="eyebrow">CATÁLOGO</p><h2>Explore o universo</h2></div>
+        <p class="muted" id="result-count">Carregando catálogo…</p>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="search" type="search" placeholder="Pesquisar personagens, itens, eventos…" autocomplete="off">
+        </label>
+        <select id="category" aria-label="Filtrar por categoria">
+          <option value="all">Todas as categorias</option>
+          <option value="Personagens">Personagens</option>
+          <option value="Cosméticos">Cosméticos</option>
+          <option value="Interface">Interface</option>
+          <option value="Mídia">Mídia</option>
+          <option value="História">História</option>
+        </select>
+      </div>
+
+      <div class="category-grid" id="category-cards">
+        <button class="category-card selected" data-filter="all"><span>✧</span><b>Tudo</b><small>Arquivo completo</small></button>
+        <button class="category-card" data-filter="Personagens"><span>♟</span><b>Personagens</b><small>Elenco e variantes</small></button>
+        <button class="category-card" data-filter="Cosméticos"><span>✦</span><b>Cosméticos</b><small>Skins, emotes e ícones</small></button>
+        <button class="category-card" data-filter="Interface"><span>▦</span><b>Interface</b><small>Ícones e elementos do jogo</small></button>
+        <button class="category-card" data-filter="Mídia"><span>▧</span><b>Mídia</b><small>Artes e materiais promocionais</small></button>
+        <button class="category-card" data-filter="História"><span>◷</span><b>História</b><small>Atualizações e eventos</small></button>
+      </div>
+
+      <div class="entries" id="entries" aria-live="polite"></div>
+      <p class="empty hidden" id="empty">Nenhum item encontrado. Tente outra pesquisa ou categoria.</p>
+    </section>
+
+    <section class="section timeline" id="sources">
+      <p class="eyebrow">PRESERVAR · DOCUMENTAR · REFERENCIAR</p>
+      <h2>Um registro para a comunidade.</h2>
+      <p class="muted">Cada entrada deve registrar sua origem, data, versão e contexto sempre que essas informações estiverem disponíveis. Não apresentamos material de fãs como se fosse oficial.</p>
+      <div class="source-links">
+        <a href="https://creators.supercell.com/en/features/fankit" target="_blank" rel="noopener">Supercell Fan Kit ↗</a>
+        <a href="https://supercell.com/en/fan-content-policy/pt/" target="_blank" rel="noopener">Política de Conteúdo para Fãs ↗</a>
+        <a href="https://supercell.com/en/news/squad-busters-faq/" target="_blank" rel="noopener">Cronograma final de Squad Busters ↗</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span> SQUAD BUSTERS ARCHIVE · PROJETO COMUNITÁRIO</span>
+    <span>Não afiliado à Supercell.</span>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
