@@ -40,6 +40,22 @@ loginButton.addEventListener("click", async () => {
     const { data } = await supabase.auth.getSession();
 
     if (data.session) {
+  const { error } = await supabase.auth.signOut();
+  if (error) throw error;
+  await updateUser();
+} else {
+  userInfo.textContent = "";
+  loginButton.textContent = "Entrar com Google";
+
+  const { error } = await supabase.auth.signInWithOAuth({
+    provider: "google",
+    options: {
+      redirectTo: "https://lightbusters.github.io/squad-busters-archive/"
+    }
+  });
+
+  if (error) throw error;
+    }
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       await updateUser();
