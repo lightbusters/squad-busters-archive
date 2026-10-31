@@ -103,7 +103,46 @@
       <p class="empty hidden" id="empty">Nenhum item encontrado. Tente outra pesquisa ou categoria.</p>
     </section>
 
-    <section class="section timeline" id="sources">
+    
+<section class="section" id="contribute">
+  <div class="section-heading">
+    <div>
+      <p class="eyebrow">COMUNIDADE</p>
+      <h2>Contribua com o arquivo</h2>
+    </div>
+  </div>
+
+  <p class="muted">Compartilhe imagens e informações para ajudar a preservar a história de Squad Busters.</p>
+
+  <form id="submission-form">
+    <label for="submission-image">Imagem</label>
+    <input id="submission-image" type="file" accept="image/*" required>
+
+    <label for="submission-title">Nome ou título</label>
+    <input id="submission-title" type="text" maxlength="100" placeholder="Ex.: Mortis" required>
+
+    <label for="submission-category">Categoria</label>
+    <select id="submission-category" required>
+      <option value="">Selecione uma categoria</option>
+      <option value="Personagens">Personagens</option>
+      <option value="Cosméticos">Cosméticos</option>
+      <option value="Interface">Interface</option>
+      <option value="Mídia">Mídia</option>
+      <option value="História">História</option>
+    </select>
+
+    <label for="submission-description">Descrição</label>
+    <textarea id="submission-description" maxlength="1000" placeholder="Conte um pouco sobre esse material."></textarea>
+
+    <label for="submission-source">Fonte</label>
+    <input id="submission-source" type="url" placeholder="https://...">
+
+    <button type="submit">Enviar contribuição</button>
+    <p id="submission-status" aria-live="polite"></p>
+  </form>
+</section>
+    
+   <section class="section timeline" id="sources">
       <p class="eyebrow">PRESERVAR · DOCUMENTAR · REFERENCIAR</p>
       <h2>Um registro para a comunidade.</h2>
       <p class="muted">
