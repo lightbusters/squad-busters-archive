@@ -11,14 +11,11 @@ const userInfo = document.querySelector("#user-info");
 const form = document.querySelector("#submission-form");
 const status = document.querySelector("#submission-status");
 
-async function getCurrentUser() {
+async function updateUser() {
   const { data, error } = await supabase.auth.getUser();
   if (error) throw error;
-  return data.user;
-}
 
-async function updateUser() {
-  const user = await getCurrentUser();
+  const user = data.user;
 
   if (user) {
     const name =
@@ -40,9 +37,9 @@ loginButton.addEventListener("click", async () => {
   loginButton.disabled = true;
 
   try {
-    const user = await getCurrentUser();
+    const { data } = await supabase.auth.getSession();
 
-    if (user) {
+    if (data.session) {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       await updateUser();
@@ -71,11 +68,10 @@ form.addEventListener("submit", async (event) => {
   status.textContent = "Enviando contribuição...";
 
   try {
-    const user = await getCurrentUser();
+    const { data } = await supabase.auth.getUser();
+    const user = data.user;
 
-    if (!user) {
-      throw new Error("Você precisa entrar com Google primeiro.");
-    }
+    if (!user) throw new Error("Entre com Google primeiro.");
 
     const file = document.querySelector("#submission-image").files[0];
     const title = document.querySelector("#submission-title").value.trim();
@@ -84,28 +80,19 @@ form.addEventListener("submit", async (event) => {
     const source = document.querySelector("#submission-source").value.trim();
 
     if (!file) throw new Error("Selecione uma imagem.");
-    if (!file.type.startsWith("image/")) {
-      throw new Error("O arquivo precisa ser uma imagem.");
-    }
-    if (file.size > 5 * 1024 * 1024) {
-      throw new Error("A imagem deve ter no máximo 5 MB.");
-    }
+    if (!file.type.startsWith("image/")) throw new Error("Arquivo inválido.");
+    if (file.size > 5 * 1024 * 1024) throw new Error("Imagem maior que 5 MB.");
 
     const extension = file.name.split(".").pop().toLowerCase();
-    const allowedExtensions = ["jpg", "jpeg", "png", "webp", "gif"];
-
-    if (!allowedExtensions.includes(extension)) {
-      throw new Error("Formato de imagem não permitido.");
+    if (!["jpg", "jpeg", "png", "webp", "gif"].includes(extension)) {
+      throw new Error("Formato não permitido.");
     }
 
     const imagePath = `${user.id}/${crypto.randomUUID()}.${extension}`;
 
     const { error: uploadError } = await supabase.storage
       .from("community-submissions")
-      .upload(imagePath, file, {
-        contentType: file.type,
-        upsert: false
-      });
+      .upload(imagePath, file, { contentType: file.type });
 
     if (uploadError) throw uploadError;
 
@@ -127,26 +114,17 @@ form.addEventListener("submit", async (event) => {
       });
 
     if (insertError) {
-      await supabase.storage
-        .from("community-submissions")
-        .remove([imagePath]);
-
+      await supabase.storage.from("community-submissions").remove([imagePath]);
       throw insertError;
     }
 
     form.reset();
-    status.textContent = "Contribuição enviada! Ela ficará aguardando aprovação.";
+    status.textContent = "Contribuição enviada! Aguardando aprovação.";
   } catch (error) {
     status.textContent = `Erro: ${error.message}`;
   } finally {
     submitButton.disabled = false;
   }
-});
-
-supabase.auth.onAuthStateChange(() => {
-  updateUser().catch(error => {
-    userInfo.textContent = `Erro: ${error.message}`;
-  });
 });
 
 updateUser().catch(error => {
